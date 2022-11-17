@@ -33,8 +33,8 @@ def export(update: Update, context: CallbackContext) -> None:
         x=r.readlines()
         for i in x:
             if search_line in i:
-                ##opt=re.sub(",", str(i))
-                update.message.reply_text(i)
+                opt=re.sub(r"[,]\s"," ", str(i))
+                update.message.reply_text(opt)
         r.close()
 
     except:
@@ -54,8 +54,8 @@ def sort_file(update: Update, context: CallbackContext) -> None:
 def output(update: Update, context: CallbackContext) -> None:
     x=open("telephones.txt", "r", encoding="UTF-8")
     a=x.read()
-    ##opt=re.sub(',', str(a))
-    update.message.reply_text(a)
+    opt=re.sub(r"[,]\s"," ", str(a))
+    update.message.reply_text(opt)
     x.close()
 
 
